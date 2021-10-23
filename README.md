@@ -1,6 +1,6 @@
-I'm Luminous, a coder from Taiwan, and also a gamer.
-I use C++ and Java to make games.
-Welcome to play my games, and tell me how do you think.
+Hello World!
 
-Good Luck Have Fun
-Now, GAME START!
+I'm a student coder from Taiwan. And also a gamer.
+Welcome to learn more about my code, and tell me how to do better.
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Luminous-Coder&count_private=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
