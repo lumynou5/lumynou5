@@ -1,6 +1,6 @@
-Hello World!
+Hello, World!
 
-I'm a student coder from Taiwan. And I'm a gamer, too.
+I'm a student coder from Taiwan.
 
 ---
 
