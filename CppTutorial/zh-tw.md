@@ -30,8 +30,8 @@ C\+\+是一種預先編譯的語言，這表示你必須先把你的程式碼（
 
 為了撰寫程式，你至少需要：
 
-- 編輯器
-- 編譯器
+- 編輯器（editor）
+- 編譯器（compiler）
 
 如果你正在進行一個大型專案，你甚至需要更多工具！（當然你也可以靠自己的大腦）
 
@@ -58,20 +58,20 @@ CLion允許你選擇想要的編譯器實現，Windows中可以安裝[clang](htt
 主體以花括號包裹，裡面則是多個述句（statement）。
 範例中只有一個述句：`return 0;`，也就是回傳`0`。
 
-```cpp=
-int main() {
-    return 0;
+<pre>
+<span class="token keyword">int</span> <span class="token function">main</span>() {
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
-```
+</pre>
 
 ## 編譯並執行
 
 打開文字編輯器，輸入上面的程式碼（原始的程式碼通常稱作原始碼（source code））並儲存成`main.cpp`。然後打開終端（像Windows的Power Shell），輸入：
 
-```shell
-g++ main.cpp -o main
-./main
-```
+<pre>
+<span class="token function">g++</span> main.cpp <span class="token param">-o</span> main
+<span class="token function">./main</span>
+</pre>
 
 此教學將使用C\+\+17標準，因此你也可以加上`-std=c++17`來指定編譯器使用的標準。
 
@@ -85,15 +85,14 @@ C\+\+原始碼有幾種常見的副檔名如`.cpp`或`.cc`。
 
 ## Hello World
 
-```cpp=
-#include <iostream>
+<pre>
+<span class="token keyword">#include</span> <span class="token string">&lt;iostream&gt;</span>
 
-int main() {
-    std::cout << "Hello World!";
-    
-    return 0;
+<span class="token keyword">int</span> <span class="token function">main</span>() {
+    <span class="token namespace">std</span>::<span class="token gvariable">cout</span> << <span class="token string">"Hello World!"</span>;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
-```
+</pre>
 
 前置處理器會在編譯之前處理前置處理指令（preprocessor directive），也就是井號開頭的行。
 `#include`指令能要求前置處理器找到指定的檔案，然後把裡面的內容貼上到你的檔案。
@@ -104,7 +103,7 @@ int main() {
 例如假如有兩個地方都叫紐約，說「美國，紐約」就可以知道是哪個紐約了。
 `::`這個運算子能夠從命名空間中取得東西，所以`std::cout`就是「`std`裡的`cout`」的意思。
 
-`cout`是character output，是標準輸出輸出流（standard output stream），通常會輸出到終端。
+`cout`的意思是character output，是標準輸出輸出流（standard output stream），通常會輸出到終端。
 
 如果你會其他語言的話，或許會覺得`<<`很怪，那看起來是個位元左移運算子。
 事實上，那是多載過的運算子，運算子就只是個函式，但讓程式碼更清楚（例如可以使用`one < another`而不用像`one.isLessThan(another)`這樣）。
@@ -121,11 +120,11 @@ int main() {
 從`/*`到第一個`*/`為止的內容也都會被忽略。
 然而為了統一風格，Google style建議只用其中一種，而不要混用。
 
-```cpp
-// 註解
+<pre>
+<span class="token comment">// 這是一行註解。</span>
 
-/* 註解，可以跨行 */
-```
+<span class="token comment">/* 這是一「塊」註解。 */</span>
+</pre>
 
 :::info
 註解的習慣十分重要！良好的註解可以讓其他人更快讀懂程式的意圖，也可以讓未來的自己更好維護。
@@ -137,11 +136,11 @@ int main() {
 對於大多數如C\+\+一樣的命令式語言來說，變數和數學上的變數並不一樣，更像是一個在代表記憶體上特定的空間的名字。
 最大的差異便是它是可變的（mutable）。
 
-```cpp
-int variable = 0;
-```
+<pre>
+<span class="token keyword">int</span> variable = <span class="token number">0</span>;
+</pre>
 
-要定義變數就像上面的程式碼中一樣，其定義了一個名為`variable`的變數，其型別是`int`，也就是說它是一個整數。
+例如上面的程式碼定義了一個名為`variable`的變數，其型別為`int`，也就是說它是一個整數。
 在C\+\+中型別決定了能做的運算，例如對整數可以進行加法。
 
 區域變數，也就是在函式主體內定義的變數，若是內建型別的話，在沒有初始化的情況下，嘗試取得資料是未定義行為（undefined behavior，UB）。
@@ -201,10 +200,10 @@ C\+\+提供的內建型別（built-in type）包含了算術型別和一些特�
 
 參考（reference）是一個物件的「別名」，本身並不是一個物件，使用方式如下：
 
-```cpp
-int i = 0;
-int &ref = i;
-```
+<pre>
+<span class="token keyword">int</span> i = <span class="token number">0</span>;
+<span class="token keyword">int</span>&amp; ref = i;
+</pre>
 
 當定義一個參考變數時，必須將其繫結（bind）到一個變數，也就是告訴編譯器這個參考是哪個變數的別名，之後無法再改變繫結的對象。
 對`ref`的所有操作都等同於對`i`進行的。
@@ -213,23 +212,23 @@ int &ref = i;
 
 指標（pointer）是一種儲存著記憶體位址（address）的變數，為了取得位址可以使用取址運算子（address-of operator）`&`：
 
-```cpp
-int i = 0;
-void *ptr = &i;
-```
+<pre>
+<span class="token keyword">int</span> i = <span class="token number">0</span>;
+<span class="token keyword">int</span>* ptr = &amp;i;
+</pre>
 
 在上面的程式碼中，`*`表示`ptr`是一個指標，並且初始化為`i`的位址。
-`void`雖然無法作為變數的型別，但可以是指標指向的型別，表示不指定指向物件的型別。
+`void*`是一個特殊的指標型別，表示不知道指向的地方有什麼（即不指定型別）。
 
 若要獲得指標指向的（位於儲存的位址上的）物件，要使用間接取值運算子（indirection operator）`*`。
 然而若直接對`ptr`進行取值，這個程式無法成功編譯。
 原因是我們並未指定`ptr`指向了什麼東西，由於型別決定能做的運算，也決定了物件的大小，電腦也就不知道要怎麼取得指向的物件。
 要解決這個問題可以改為`int *ptr`，這表示`ptr`是指向一個`int`。
 
-```cpp
-int *ptr = &i;
-(*ptr) = 10;
-```
+<pre>
+<span class="token keyword">int</span>* ptr = &amp;i;
+(*ptr) = <span class="token number">10</span>;
+</pre>
 
 :::info
 所有指標都應該初始化，否則其值為未定義，若不小心進行取值可能造成嚴重錯誤。
@@ -242,17 +241,17 @@ int *ptr = &i;
 
 所謂無效就是像下面的範例這樣：
 
-```cpp=
-#include <iostream>
+<pre>
+<span class="token keyword">#include</span> <span class="token string">&lt;iostream&gt;</span>
 
-int main() {
-    int i = 0;
-    int *ptr = &i;
-    std::cout << *(ptr + 1);
+<span class="token keyword">int</span> <span class="token function">main</span>() {
+    <span class="token keyword">int</span> i = <span class="token number">0</span>;
+    <span class="token keyword">int</span>* ptr = &amp;i;
+    <span class="token namespace">std</span>::<span class="token gvariable">cout</span> << *(ptr + 1);
     
-    return 0;
+    <span class="token keyword">return</span> <span class="token number">0</span>;
 }
-```
+</pre>
 
 問題出在，`ptr + 1`代表`ptr`後面一個位址，然而後面是什麼東西？
 
@@ -286,7 +285,7 @@ int arr[3]; // `arr`有3個整數元素。
 int arr[] = {10, 20, 30}; // `arr`的長度為3。
 ```
 
-然而傳統陣列也有許多缺點，例如無法一次為整個陣列賦值：
+然而傳統陣列也有許多缺點，例如無法一次存取整個陣列：
 
 ```cpp
 int a[] = {10, 20, 30};
