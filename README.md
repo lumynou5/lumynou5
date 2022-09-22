@@ -13,16 +13,16 @@ Hello, World!
 
 <p>
     <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-readme-stats.vercel.app/api?username=Luminous-Coder&show_icons=true&theme=tokyonight&border_color=7f7e84" alt="Stats" width="calc(50% - 1px)" />
+        <img src="https://github-readme-stats.vercel.app/api?username=Luminous-Coder&show_icons=true&theme=tokyonight&hide_border=true" alt="Stats" width="49%" />
     </a>
     <a href="https://git.io/streak-stats">
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=Luminous-Coder&date_format=Y-m-d&theme=tokyonight&border=7f7e84" alt="Streak" width="calc(50% - 1px)" />
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=Luminous-Coder&date_format=Y-m-d&theme=tokyonight&hide_border=true" alt="Streak" width="49%" />
     </a>
 </p>
 
 <p>
     <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Luminous-Coder&hide=CMake&theme=tokyonight&border_color=7f7e84" alt="Top Langs" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Luminous-Coder&hide=CMake&theme=tokyonight&hide_border=true" alt="Top Langs" />
     </a>
 </p>
 
