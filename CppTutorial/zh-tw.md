@@ -590,16 +590,7 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 巨集也可以接受引數：
 
 <pre>
-<code><span class="token keyword">#include</span> <span class="token string">&lt;iostream&gt;</span>
-
-<span class="token keyword">#define</span> <span class="token macro">MAX(a, b)</span> (a > b ? a : b)
-
-<span class="token keyword">int</span> <span class="token function">main</span>() {
-    <span class="token keyword">int</span> value;
-    <span class="token namespace">std</span>::<span class="token gvariable">cin</span> &gt;&gt; value;
-    <span class="token namespace">std</span>::<span class="token gvariable">cout</span> &lt;&lt; <span class="token macro">MAX</span>(value, <span class="token number">10</span>);
-    <span class="token keyword">return</span> <span class="token number">0</span>;
-}
+<code><span class="token keyword">#define</span> <span class="token macro">MAX(a, b)</span> (a > b ? a : b)
 </code></pre>
 
 其中 `? :` 是條件運算子（conditional operator），也是 C\+\+ 中唯一一個接受三個運算元的運算子，因此也有人直接將其稱作三元運算子。
@@ -611,12 +602,12 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 ### 引入防範
 
-由於 `#include` 指令只是複製貼上，因此如果引入同一個標頭檔兩次，便會造成重複定義，或造成編譯時間延長。
+由於 `#include` 指令只是複製貼上，因此如果引入同一個標頭檔兩次，便會因為重複定義造成錯誤，或造成編譯時間延長。
 對於這個問題，最常見的做法是使用引入防範（include guard），這也是條件編譯最常見的使用情境。
 
 <pre>
-<code><span class="token keyword">#ifndef</span> <span class="token macro">PROJECT_HEADER</span> <span class="token comment">// 如果沒有定義……</span>
-<span class="token keyword">#define</span> <span class="token macro">PROJECT_HEADER</span>
+<code><span class="token keyword">#ifndef</span> <span class="token macro">CPPTUTORIAL_EXAMPLE_HEADER_H</span> <span class="token comment">// 如果沒有定義……</span>
+<span class="token keyword">#define</span> <span class="token macro">CPPTUTORIAL_EXAMPLE_HEADER_H</span>
 
 <span class="token comment">// 內容。</span>
 
@@ -627,12 +618,12 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 另一種做法是在標頭檔的第一行使用非標準的指令 `#pragma once`，如果編譯器不支援會直接忽略，因此不建議使用。
 
-# 宣告
-
 ---
 
 版權所有 (c) 2022 Luminous-Coder  
 所有內容在 [CC「姓名標示—非商業性—同方式分享」4.0 國際公眾授權條款](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hant) 下發佈。
+
+<a href='https://ko-fi.com/luminouscoder' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 {%hackmd @Luminous-Coder/dark-theme %}
 
