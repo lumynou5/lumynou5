@@ -1,6 +1,5 @@
 ---
-title: C++教學
-description: C++基礎教學
+title: 現代 C++ 101
 tags: Tutorial
 lang: zh-tw
 breaks: false
