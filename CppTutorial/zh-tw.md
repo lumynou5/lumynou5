@@ -15,6 +15,12 @@ C\+\+ 是一個強大的程式語言，儘管名字上相似，也有歷史淵�
 其能夠在兼顧高效能的同時表達高階概念，輕鬆撰寫出跨平台的程式碼，因而歷久不衰。
 無論是初學者，抑或已經掌握其他語言的程式設計師都適合學習。
 
+缺點則包含歷史因素導致語法艱澀等等，然而一個語言要有用並不只是良好的設計，也需要有豐富的第三方生態，因此目前看來，C\+\+ 還會繼續它的不朽。
+
+「現代 C\+\+」是指 C\+\+11 及其後的標準，與之前的標準有較大的區別，之前的標準也因此不建議學習。
+本教學將以 C\+\+17 為主，但也會提到一些 C\+\+20、23 的內容，並額外標註。
+在讀完後，應該可以掌握基礎的現代 C\+\+ 開發技能；但也請注意並不一定囊括標準中所有內容，身為程式設計師應該要能夠自主解決問題、滿足需求並持續學習，而不是一味的背誦。
+
 ## 致謝
 
 感謝一路上幫助我的人們，在我曾經迷茫無知的時候伸出援手，沒有他們我不可能變成現在的樣子。
@@ -38,12 +44,19 @@ C\+\+ 是一種預先編譯的語言，這表示你必須先把你的程式碼�
 編輯器就是任何可以編輯檔案的應用程式，例如記事本；編譯器則是「將原始碼翻譯成電腦可以執行的 0 和 1」的程式。
 
 所以，你可以使用 Windows 的記事本來寫程式，但那很不方便，因此開發者通常會使用整合開發環境（integrated development environment，IDE），一個好的 IDE 甚至可以讓你開發得更有效率。
-我推薦使用 JetBrains 的 [CLion](https://www.jetbrains.com/clion/)[^CLion]，或者你也可以選擇其他的，如 [Microsoft Visual Studio](https://visualstudio.microsoft.com/zh-hant/) 等。
+你可以使用 JetBrains 的 [CLion](https://www.jetbrains.com/clion/)[^CLion] 或 [Microsoft Visual Studio](https://visualstudio.microsoft.com/zh-hant/) 等。
 
 IDE 通常有許多強大的輔助功能，但那不是我們要討論的。
-因此，這裡將（假設你）使用一個普通的文字編輯器和終端來手動編譯，當然你也可以透過 IDE 的 GUI 操作，你可以在它們的網站上找到說明。
+因此，這裡將（假設你）使用一個普通的文字編輯器，例如 [Notepad\+\+](https://notepad-plus-plus.org/) 或 [Visual Studio Code](https://code.visualstudio.com/)。
+當然你也可以透過 IDE 的 GUI 操作，你可以在它們的網站上找到使用說明。
 
 接著，要安裝一個 C\+\+ 編譯器，Windows 中可以安裝 [clang](https://github.com/llvm/llvm-project/releases)，Linux 則可以使用 [g++](https://gcc.gnu.org/)，當然這兩個實作其實都支援很多平台，也還有很多其他的編譯器，這只是建議而已。
+
+:::info
+一些 IDE 內建包含編譯器在內的工具鏈，例如 Microsoft Visual Studio，如果你選擇使用這種 IDE，則不需要再安裝編譯器。
+:::
+
+Windows 下使用 VSCode 的環境配置可以參考 [礦坑系列的前置教學](https://hackmd.io/@Mes/MinerT_enviroment)。
 
 ## 程式進入點
 
@@ -79,10 +92,10 @@ IDE 通常有許多強大的輔助功能，但那不是我們要討論的。
 <span class="token function">./main</span>
 </code></pre>
 
-`-std=c++17` 意味著使用 C\+\+17 標準編譯，這是此教學將採用的標準。
+`-std=c++17` 意味著使用 C\+\+17 標準編譯，這是此教學使用的標準。
 `-o` 則指定了輸出的檔案名稱。
 
-注意指令會因為 shell 和編譯器而有所不同，請自行查找使用方式。
+注意指令會因為作業系統、shell 和編譯器而有所不同，請自行查找使用方式。
 
 :::info
 儘管在一些平台上，副檔名並非必須的，然而為了方便知道檔案的類型還是建議加上。
@@ -158,7 +171,7 @@ C\+\+ 原始碼常見的副檔名包括 `.cpp` 和 `.cc`。
 例如上面的程式碼定義了一個名為 `variable` 的變數，其型別為 `int`，也就是說物件是一個整數。
 在 C\+\+ 中型別決定了能做的運算，例如對整數可以進行加法。
 
-變數的名字和程式中其他的名字，或者稱作「識別符（identifier）」，都必須符合 `/[A-Za-z0-9_]*/`，也就是說只能包含大小寫字母、數字和底線，不能以數字開頭，不和任何關鍵詞一樣。
+變數的名字和程式中其他東西的名字，或者稱作「識別符（identifier）」，都只能包含大小寫字母、數字和底線，不能以數字開頭，且不能和任何關鍵詞一樣。
 實際上，C\+\+ 標準允許使用大部分的字元，但很多編譯器實作不支援，且使用其他語言不方便編寫，也不方便他人閱讀，因此不建議使用。
 
 區域變數（local variable），也就是在函式主體內定義的變數，若是內建型別的話，預設初始化並不會決定它的值，嘗試取得資料是未定義行為（undefined behavior，UB）。
@@ -202,9 +215,10 @@ C\+\+ 提供的內建型別（built-in type）包含了算術型別和一些特�
 預設的有號性是實作定義的。
 
 寬字元（`wchar_t`，wide character）的大小至少能儲存機器所支援的任何編碼碼點。
+也有對應版本的 `std::wcout`，表示 wide character output。
 
-`char8_t`<span class="lmn-va">（C\+\+20 後）</span>、`char16_t`、`char32_t` 則分別儲存 UTF-8、UTF-16、UTF-32 編碼下的一個編碼單元。
-這表示除了 `char32_t`，其他兩個型別的物件可能不代表一個字元。
+<span class="lmn-vs">`char8_t`<span class="lmn-va">（自從 C\+\+20）</span></span>、`char16_t`、`char32_t` 則分別儲存 UTF-8、UTF-16、UTF-32 編碼下的一個編碼單元。
+這表示除了 `char32_t`，一個其他兩個型別的物件並不一定是一個 Unicode 碼點。
 
 ##### 布林型別
 
@@ -220,7 +234,7 @@ C\+\+ 提供的內建型別（built-in type）包含了算術型別和一些特�
 
 還有一個特殊的型別：`void`。
 其並不能作為變數的型別，用途也很少，最常見的用法是作為函式回傳型別表示沒有回傳值。
-但請注意這不表示函式不會回傳（如永不型別），流程仍然會在回傳後回到呼叫的地方繼續執行，僅僅是沒有值被回傳而已。
+但請注意這不表示函式不會回傳，流程仍然會在回傳後回到呼叫的地方繼續執行，僅僅是沒有值被回傳而已。
 
 #### Size-of 運算子
 
@@ -229,19 +243,24 @@ C\+\+ 提供的內建型別（built-in type）包含了算術型別和一些特�
 
 ### 參考
 
-參考（reference）是一個物件的「別名」，本身並不是一個物件，使用上如下所示，型別後加上 `&` 即可。
+一個參考（reference）是一個物件的「別名」，本身並不是一個物件。
+使用上如下所示，型別後加上 `&` 即可。
 
 <pre>
 <code><span class="token keyword">int</span> i = <span class="token number">0</span>;
 <span class="token keyword">int</span>&amp; ref = i;
 </code></pre>
 
-當定義一個參考變數時，必須將其繫結（bind）到一個變數，也就是告訴編譯器這個參考是哪個變數的別名，之後無法再改變繫結的對象。
+當定義一個參考變數時，必須將其繫結（bind）到一個物件，也就是告訴編譯器這個參考是哪個物件的別名，之後無法再改變繫結的對象。
 對 `ref` 的所有操作都等同於對 `i` 進行的。
+
+:::info
+在 C\+\+ 中，物件通常指記憶體中的資料，而非物件導向的物件。
+:::
 
 ### 指標
 
-指標（pointer）是一種儲存著記憶體位址（address）的變數，只要在型別後加上 `*` 表示指向前面的型別的物件的指標，例如 `int*` 表示指向一個 `int` 物件的指標、`int**` 表示指向一個 `int*` 物件的指標。
+指標（pointer）是儲存著記憶體位址（address）的型別，只要在型別後加上 `*` 表示指向前面的型別的物件的指標，例如 `int*` 表示指向一個 `int` 物件的指標、`int**` 表示指向一個 `int*` 物件的指標。
 
 要取得物件的位址可以使用取址運算子（address-of operator）`&`，要取得指向的物件則可以使用間接取值運算子（indirection operator）`*`。
 
@@ -258,7 +277,9 @@ C\+\+ 提供的內建型別（built-in type）包含了算術型別和一些特�
 
 #### 未知型別的指標
 
-有一個特殊的指標型別：`void*`，其指向的記憶體位置是什麼型別的物件是不固定的，因此也無法對其進行取值，因為並不知道物件的大小。
+指標是儲存記憶體位址的型別，也就是說，在那個位址儲存著什麼物件對指標來說應該是不重要的，但 C\+\+ 的指標卻要指定指向物件的型別；這是因為型別決定了物件能做的運算，也可以降低開發者的負擔，不需要擔心指標指向的物件是什麼型別。
+
+不過仍然有一個特殊的指標型別：`void*` 用以表示「通用」的指標。
 
 這個型別並不建議使用，大部分時候也不需要用，除非確定自己在做什麼，否則不要撰寫這樣的程式碼。
 
@@ -268,15 +289,17 @@ C\+\+ 提供的內建型別（built-in type）包含了算術型別和一些特�
 
 #### 迷途指標
 
-迷途指標（dangling pointer，又稱懸空指標、野指標）指向的記憶體位址是無效的，就好像迷途一樣，所謂無效指是像 `ptr + 1` 這樣。
-`ptr` 指向的是 `i`，那 `i` 後面一個位置是什麼？
+迷途指標（dangling pointer，又稱懸空指標、野指標）是指指向無效位址的指標。
+例如 `ptr + 1` 指向了 `i` 之後一個物件，顯而易見的，這個指標沒有任何意義。
+
+這也是為什麼所有指標都應該初始化，否則的話，由於其值未定義，不小心對其取值可能會造成嚴重的錯誤。
 
 #### 空指標
 
-如果一個指標不指向任何東西，或者說指向「沒有東西」，可以使用字面值 `nullptr`，這個特殊的值可以隱式轉換成任何型別的指標。
-如此一來，便可以用 `if (ptr)` 等方式來檢查，而不會有未初始化的指標的問題。
+如果一個指標不指向任何東西，或者說指向「空」，可以使用字面值 `nullptr`，這個特殊的值可以隱式轉換成任何指標。
+如此一來，即使一個指標暫時沒有值，也可以讓其指向空，而避免掉造成迷途指標。
 
-嘗試從「沒有東西」取值是未定義行為。
+嘗試對空指標取值是未定義行為。
 
 ### 陣列
 
@@ -302,7 +325,8 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 </code></pre>
 
 要存取陣列中的元素，可以使用下標運算子（subscript operator）`[]`。
-值得注意的是索引（index）是從 0 開始的，且*沒有超界檢查*（一些編譯器實作可能會警告）。
+值得注意的是索引（index）是從 0 開始的，且*沒有超界檢查*。
+因此如果使用 `a[3]`，就像對迷途指標取值一樣，會造成未定義行為。
 
 <pre>
 <code><span class="token namespace">std</span>::<span class="token gvariable">cout</span> &lt;&lt; arr[<span class="token number">0</span>];
@@ -312,10 +336,9 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 #### 陣列與指標的轉換
 
-在需要指標的地方給陣列，會隱式轉換為指標，指向陣列中第一個物件。
-因此，`arr[idx]` 的效果等同於 `*(arr + idx)`，陣列會轉換成指標再透過指標加法取得其後第 `idx` 個物件的位址並取值。
+在需要指標的地方給一個陣列，會隱式轉換為「指向陣列第一個物件的指標」，換言之，`arr` 與 `&arr[0]` 在這種情況下是等價的。
 
-另外，`arr` 會隱式轉換成第一個元素的位址，型別是 `int*`，但 `&arr` 是取得陣列的位址，因此型別是 `int(*)[length]`。
+這也表示 `*(arr + idx)` 與 `arr[idx]` 會得到同樣的值，因為陣列是連續的儲存資料，所以指向第一個物件的指標加上索引值，就是指向該索引的物件的指標了。
 
 <pre>
 <code><span class="token keyword">int</span> arr[<span class="token number">3</span>] = {<span class="token number">10</span>, <span class="token number">20</span>, <span class="token number">30</span>};
@@ -386,9 +409,9 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 | `\u0000`     | Unicode 碼點 `U+0000`      |
 | `\U00000000` | Unicode 碼點 `U+00000000`  |
 
-前綴 `R` 可以關閉跳脫序列，詳細用法見 [cppreference](https://zh.cppreference.com/mwiki/index.php?title=cpp/language/string_literal&variant=zh-tw)。
+前綴 `R` 可以關閉跳脫序列，詳細用法可以參考 [cppreference](https://zh.cppreference.com/mwiki/index.php?title=cpp/language/string_literal&variant=zh-tw)，這裡就不展開討論了。
 
-一個字串字面值的陣列長度和看起來不會一樣，例如 `"C++"` 的長度為 4，因為其結尾會有一個空字元 `\0`，這是 C 式字串的特性：空結尾（null-terminated）。
+一個字串字面值的陣列長度和看起來不會一樣，例如 `"C++"` 的長度為 4，因為其結尾會有一個空字元 `\0`，這是 C 式字串（使用字元陣列表示字串）的特性：空結尾（null-terminated）。
 
 ## 標準輸出與標準輸入
 
@@ -403,7 +426,7 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 <code><span class="token namespace">std</span>::<span class="token gvariable">cout</span> &lt;&lt; <span class="token string">"Hello "</span> &lt;&lt; <span class="token number">20</span>;
 </code></pre>
 
-等等，陣列會被隱式轉換成指標，那我們是怎麼輸出字串的？
+等等，陣列會被隱式轉換成指標，那 `std::cout` 是怎麼輸出字串的？
 之前提過，C 式字串實際上是字元陣列，並且以空字元結尾，因此我們只需要輸出 `*(ptr + idx)`，直到空字元即可。
 
 標準庫還提供了一些方法來控制輸出的行為：
@@ -499,12 +522,12 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 其中 `==` 是等於運算子（equal-to operator），會在兩邊的運算元相等時回傳 `true`，否則回傳 `false`。
 
-不過現在每次的答案都是 5，很無聊，要隨機產生答案才行。
-因此引入 `cstdlib`，並將字面值 `5` 改成 `std::rand() % 10 + 1`。
+不過現在每次的答案都是 5，並不有趣。
+為了產生隨機產生答案，引入 `cstdlib`，並將字面值 `5` 改成 `std::rand() % 10 + 1`。
 `%` 是取餘運算子（remainder operator），將亂數除以 10 的餘數加上 1，得到的結果便必定落在 1 到 10 之間。
 
-不過這樣每次產生的亂數都一樣，這是因為電腦只能通過數學計算取得偽亂數（pseudo random），只要種子一樣就會產生一樣的偽亂數序列，這也是為什麼在 Minecraft 中同樣種子會生成一樣的「隨機」世界。
-要修正這個問題，要引入 `ctime`，並在呼叫 `std::rand` 前使用 `std::srand(std::time(nullptr))` 將時間設為種子。
+不過即使隨機產生了，答案卻每次都一樣，這是因為電腦只能通過數學計算取得偽亂數（pseudo random），只要種子（seed）一樣就會產生一樣的偽亂數序列，這也是為什麼在 Minecraft 中同樣種子會生成一樣的「隨機」世界。
+為了每次都使用不同的種子，要引入 `ctime`，並在呼叫 `std::rand` 前使用 `std::srand(std::time(nullptr))` 將時間設為種子。
 
 最終程式碼：
 
@@ -575,7 +598,7 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 ## 定義
 
-使用 `#define` 定義的東西稱作巨集（macro），會在編譯之前被展開，也就是取代成原本的內容。為了方便辨識，巨集會使用全部大寫，並以底線分隔字詞。
+使用 `#define` 定義的東西稱作巨集（macro），會在編譯之前被展開，也就是取代成原本的內容。為了方便辨識，巨集名稱通常全部大寫，並以底線分隔字詞。
 
 <pre>
 <code><span class="token keyword">#define</span> <span class="token macro">PI</span> (<span class="token number">3.1415F</span>)
@@ -599,6 +622,13 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 所謂條件編譯，顧名思義，只在某些情況下編譯某些程式碼。
 
+通常會使用 `#ifdef` 和 `#ifndef`，來分別在定義或沒有定義某些巨集的情況下使用不同的程式碼。
+例如針對不同作業系統使用不同版本的實作，或是透過 `#if` 與比較運算子來根據版本條件編譯等等。
+
+`#else` 指令標記條件不成立時應該編譯的程式碼，`#elif`、<span class="lmn-vs">`#elifdef`、`#elifndef`<span class="lmn-va">（自從 C\+\+23）</span></span> 則可以進行多種情況選擇的條件編譯。
+
+條件編譯預處理器指令必須以成對的 `#endif` 指令標記條件編譯的程式碼的範圍。
+
 ### 引入防範
 
 由於 `#include` 指令只是複製貼上，因此如果引入同一個標頭檔兩次，便會因為重複定義造成錯誤，或造成編譯時間延長。
@@ -617,14 +647,23 @@ a = {<span class="token number">50</span>, <span class="token number">60</span>,
 
 另一種做法是在標頭檔的第一行使用非標準的指令 `#pragma once`，如果編譯器不支援會直接忽略，因此不建議使用。
 
+:::warning
+To be continued...
+:::
+
+# 附錄：延伸閱讀
+
+- [cppreference](https://zh.cppreference.com/mwiki/index.php?title=%E9%A6%96%E9%A1%B5&variant=zh-hant)，[英語頁面](https://en.cppreference.com/w/)
+- [潮・C\+\+](https://tjsw.medium.com/)
+
 ---
 
 版權所有 (c) 2022 Luminous-Coder  
-所有內容在 [CC「姓名標示—非商業性—同方式分享」4.0 國際公眾授權條款](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hant) 下發佈。
+所有內容在 [CC「姓名標示—非商業性—相同方式分享」4.0 國際公眾授權條款](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hant) 下發佈。
 
-<a href='https://ko-fi.com/luminouscoder' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<a class="lmn-kofi" style="display:inline-block; border:hidden; border-radius:50px;" href="https://ko-fi.com/luminouscoder" target="_blank"><img style="height:36px;" src="https://cdn.ko-fi.com/cdn/kofi1.png?v=3" alt="Buy Me a Coffee" /></a>
 
 {%hackmd @Luminous-Coder/dark-theme %}
 
 [^CLion]: CLion 需要付費，但如果你是學生便可以申請教育方案，免費使用 JetBrains 的各種 IDE，GitHub Student Developer Pack 中也有贈送。
-但也請注意 CLion 的一些功能或許會造成初學者的困惑。
+但也請注意 CLion 與 Visual Studio 作為全面的 IDE 或許會造成初學者有些不知所措。
