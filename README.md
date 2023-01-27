@@ -16,19 +16,10 @@ If you like my works, you may leave luminous stars.
 
 ## Stats
 
-<p>
-    <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-readme-stats.vercel.app/api?username=Luminous-Coder&show_icons=true&theme=tokyonight&hide_border=true" alt="Stats" width="49%" />
-    </a>
-    <a href="https://git.io/streak-stats">
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=Luminous-Coder&date_format=Y-m-d&theme=tokyonight&hide_border=true" alt="Streak" width="49%" />
-    </a>
-</p>
+[![Stats](https://github-readme-stats.vercel.app/api?username=Luminous-Coder&show_icons=true&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
 
-<p>
-    <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Luminous-Coder&hide=CMake&theme=tokyonight&hide_border=true" alt="Top Langs" />
-    </a>
-</p>
+[![Streak](https://github-readme-streak-stats.herokuapp.com/?user=Luminous-Coder&date_format=Y-m-d&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Luminous-Coder&hide=CMake&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
 
 (The data aren't real-time.)
