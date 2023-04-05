@@ -1,4 +1,4 @@
-# Luminous-Coder
+# Lumynous
 **A student coder from Taiwan**
 
 Hello, World!
