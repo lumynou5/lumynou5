@@ -16,10 +16,10 @@ If you like my works, you may leave luminous stars.
 
 ## Stats
 
-[![Streak](https://streak-stats.demolab.com/?user=Luminous-Coder&date_format=Y-m-d&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
+[![Streak](https://streak-stats.demolab.com/?user=lumynou5&date_format=Y-m-d&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
 
-[![Stats](https://github-readme-stats.vercel.app/api?username=Luminous-Coder&show_icons=true&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+[![Stats](https://github-readme-stats.vercel.app/api?username=lumynou5&show_icons=true&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Luminous-Coder&hide=CMake&exclude_repo=dotfiles&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lumynou5&hide=CMake&exclude_repo=dotfiles&theme=tokyonight&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
 
 (The data aren't real-time.)
