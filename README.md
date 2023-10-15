@@ -11,6 +11,7 @@ If you like my works, you may leave luminous stars.
 
 ## Userscripts
 [![YouTube Commenter Names](https://github-readme-stats.vercel.app/api/gist?id=74bcbab54cd9d8fcd3c873fffbac5d3d&theme=tokyonight&hide_border=true)](https://gist.github.com/lumynou5/74bcbab54cd9d8fcd3c873fffbac5d3d)
+[![YouTube Disable Autoplaying](https://github-readme-stats.vercel.app/api/gist?id=b036f405a0888bf9c3b9a3f560e36f3d&theme=tokyonight&hide_border=true)](https://gist.github.com/lumynou5/b036f405a0888bf9c3b9a3f560e36f3d)
 
 ## Articles
 - [現代 C++ 101](https://hackmd.io/@lumynou5/CppTutorial-zh-tw)
