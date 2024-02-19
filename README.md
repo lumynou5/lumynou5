@@ -1,7 +1,7 @@
 # Lumynous
 **A student coder from Taiwan**
 
-Hello, World!
+Dream to go to university in the U.S.
 
 If you like my works, you may leave luminous stars.
 
