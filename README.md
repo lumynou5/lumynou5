@@ -41,9 +41,9 @@ If you like my works, you may leave luminous stars.
 </a> -->
 <a href="https://github.com/anuraghazra/github-readme-stats">
   <picture>
-    <source srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=lumynou5&langs_count=8&hide=CMake&exclude_repo=dotfiles&theme=tokyonight&hide_border=true" media="(prefers-color-scheme: dark)">
+    <source srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=lumynou5&langs_count=8&hide=CMake&exclude_repo=dotfiles&theme=tokyonight&bg_color=0D1117&hide_border=true" media="(prefers-color-scheme: dark)">
     <source srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=lumynou5&langs_count=8&hide=CMake&exclude_repo=dotfiles&theme=buefy&hide_border=true" media="(prefers-color-scheme: light)">
-    <img alt="" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lumynou5&langs_count=8&hide=CMake&exclude_repo=dotfiles&theme=tokyonight&hide_border=true" align="right">
+    <img alt="" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lumynou5&langs_count=8&hide=CMake&exclude_repo=dotfiles&theme=tokyonight&bg_color=0D1117&hide_border=true" align="right">
   </picture>
 </a>
 <a href="https://github.com/DenverCoder1/github-readme-streak-stats">
@@ -55,16 +55,16 @@ If you like my works, you may leave luminous stars.
 </a>
 <a href="https://github.com/anuraghazra/github-readme-stats">
   <picture>
-    <source srcset="https://github-readme-stats.vercel.app/api?username=lumynou5&number_format=long&show_icons=true&theme=tokyonight&hide_border=true&card_width=500" media="(prefers-color-scheme: dark)">
+    <source srcset="https://github-readme-stats.vercel.app/api?username=lumynou5&number_format=long&show_icons=true&theme=tokyonight&bg_color=0D1117&hide_border=true&card_width=500" media="(prefers-color-scheme: dark)">
     <source srcset="https://github-readme-stats.vercel.app/api?username=lumynou5&number_format=long&show_icons=true&theme=buefy&hide_border=true&card_width=500" media="(prefers-color-scheme: light)">
-    <img alt="" src="https://github-readme-stats.vercel.app/api?username=lumynou5&number_format=long&show_icons=true&theme=tokyonight&hide_border=true&card_width=500">
+    <img alt="" src="https://github-readme-stats.vercel.app/api?username=lumynou5&number_format=long&show_icons=true&theme=tokyonight&bg_color=0D1117&hide_border=true&card_width=500">
   </picture>
 </a>
 <a href="https://github.com/Ashutosh00710/github-readme-activity-graph">
   <picture>
-    <source srcset="https://github-readme-activity-graph.vercel.app/graph?username=lumynou5&bg_color=1A1B27&color=38BDAE&title_color=70A5FD&line=38BDAE&point=BF91F3&area_color=2D435C&area=true&radius=4.5&hide_border=true" media="(prefers-color-scheme: dark)">
+    <source srcset="https://github-readme-activity-graph.vercel.app/graph?username=lumynou5&bg_color=0D1117&color=38BDAE&title_color=70A5FD&line=38BDAE&point=BF91F3&area_color=203C4C&area=true&radius=4.5&hide_border=true" media="(prefers-color-scheme: dark)">
     <source srcset="https://github-readme-activity-graph.vercel.app/graph?username=lumynou5&bg_color=FFFFFF&color=363636&title_color=7957D5&line=363636&point=FF3860&area_color=BDBDBD&area=true&radius=4.5&hide_border=true" media="(prefers-color-scheme: light)">
-    <img alt="" src="https://github-readme-activity-graph.vercel.app/graph?username=lumynou5&bg_color=1A1B27&color=38BDAE&title_color=70A5FD&line=38BDAE&point=BF91F3&area_color=2D435C&area=true&radius=4.5&hide_border=true">
+    <img alt="" src="https://github-readme-activity-graph.vercel.app/graph?username=lumynou5&bg_color=0D1117&color=38BDAE&title_color=70A5FD&line=38BDAE&point=BF91F3&area_color=203C4C&area=true&radius=4.5&hide_border=true">
   </picture>
 </a>
 
