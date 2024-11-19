@@ -48,9 +48,9 @@ If you like my works, you may leave luminous stars.
 </a>
 <a href="https://github.com/DenverCoder1/github-readme-streak-stats">
   <picture>
-    <source srcset="https://streak-stats.demolab.com/?user=lumynou5&date_format=Y-m-d&theme=tokyonight&hide_border=true&card_width=500" media="(prefers-color-scheme: dark)">
+    <source srcset="https://streak-stats.demolab.com/?user=lumynou5&date_format=Y-m-d&theme=tokyonight&background=0D1117&hide_border=true&card_width=500" media="(prefers-color-scheme: dark)">
     <source srcset="https://streak-stats.demolab.com/?user=lumynou5&date_format=Y-m-d&theme=buefy&hide_border=true&card_width=500" media="(prefers-color-scheme: light)">
-    <img alt="" src="https://streak-stats.demolab.com/?user=lumynou5&date_format=Y-m-d&theme=tokyonight&hide_border=true&card_width=500">
+    <img alt="" src="https://streak-stats.demolab.com/?user=lumynou5&date_format=Y-m-d&theme=tokyonight&background=0D1117&hide_border=true&card_width=500">
   </picture>
 </a>
 <a href="https://github.com/anuraghazra/github-readme-stats">
