@@ -1,9 +1,9 @@
 # Lumynous
-**A student coder from Taiwan**
+**Simplicity is Beauty**
 
 Dream to go to university in the U.S.
 
-If you like my works, you may leave luminous stars.
+If you like my works, leave luminous stars to let me know.
 
 ## Skills
 [![C, C++, Java, JavaScript, TypeScript, CSS, HTML](https://skillicons.dev/icons?i=c,cpp,java,js,ts,css,html)](https://github.com/tandpfun/skill-icons)
