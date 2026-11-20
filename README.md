@@ -35,9 +35,6 @@ If you like my works, leave luminous stars to let me know.
   </picture>
 </a>
 
-## Articles
-- [現代 C++ 101](https://hackmd.io/@lumynou5/CppTutorial-zh-tw)
-
 ## Stats
 <!-- <a href="https://github.com/vn7n24fzkq/github-profile-summary-cards">
   <picture>
